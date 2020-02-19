@@ -1,0 +1,123 @@
+<div style="background:#F7F7F7;height: 100vh;width:100vw;">
+  <topmenu></topmenu>
+
+
+  <div class="submenu">
+    <div class="">
+      <div class="col-md-4">
+        <button class="backBtn" (click)="back()" >
+        <i class="icon-home"></i></button>
+        <span style="font-size: 18px;color:#FFFFFF;">/&nbsp;Revenue Quality NV</span>
+      </div>
+      <div class="col-md-6"></div>
+      <div class="col-md-2" style="position: relative;">
+        <button class="blueBtn" (click)="createBtn()" style="margin-left: -15px;">
+          <span style="padding-right:10px;">+</span>
+          <span>Create&nbsp;<i class="icon-sort-down" style="font-size: 12px;
+            position: absolute;
+            top: 10px;"></i></span>
+        </button>
+        <div *ngIf="showNewBtn" class="row" style="width: 100px;position: absolute;z-index: 2000;">
+          <button class="col-md-12 homeBtn" (click)="newInitiative()">New Initiative</button>
+          <!-- <button class="col-md-12 homeBtn" (click)="newMeasure()">New Measure</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-sidebar class="sidemenu" style="height: 90vh;"></app-sidebar>
+  <div class="mainsection">
+    <div class="container" style="padding-top: 10px;">
+      <div class="graphList row" style="margin-bottom: 6%;">
+        <div class=" col-md-4">
+          <div class="graphBox">
+            <div  [chart]="barchart1" id="barchart1" style="width: 100%;height:140px;padding: 10px;
+        "></div>
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="graphBox">
+            <div  [chart]="barchart1" id="barchart1" style="width: 100%;height:140px;padding: 10px;
+        "></div>
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="graphBox">
+            <div  [chart]="barchart1" id="barchart2" style="width: 100%;height:140px;padding: 10px;
+        "></div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="initiativeList row">
+        <div class="itemList" *ngFor="let item of itemList;let i=index">
+          <div class="itemTitle row"  (click)="changeSelectedItem(i)">
+            <div class="col-md-1">
+              <img class="imgUp"  *ngIf="selectedItem != i" src="../../../assets/img/up.png" alt="">
+              <img class="imgDown"  *ngIf="selectedItem == i" src="../../../assets/img/down.png" alt="">
+            </div>
+            <div class="col-md-5">
+              {{i+1}}. {{item.title}}
+              <br>
+              {{item.description}}
+              <br>
+              <span class="subtitle">Total Measure:</span>  {{item.noofmeasures}}
+            </div>
+            <div class="col-md-2">
+              <span class="subtitle">Current IL Status</span>
+              <br>
+              {{item.ilstatus}}
+            </div>
+            <div class="col-md-1">
+              <span class="person-icon" >{{getLetter(item.lead)}}</span>
+
+            </div>
+            <div class="col-md-2">
+              <span class="subtitle">Project Lead</span>
+
+              <br>
+              {{item.lead}}
+
+            </div>
+            <div class="col-md-1">
+              <button class="col-md-12 homeBtn" (click)="openInitiative(item.id)"><i class="icon-eye-open"></i>&nbsp;View</button>
+            </div>
+            <!-- {{item.title}} -->
+          </div>
+          <div class="itemBody" *ngIf="selectedItem == i" >
+            <div class="measureItem row" *ngFor="let measure of item.measureList;let j = index">
+              <div class="col-md-9">
+                {{i+1}}.{{j+1}}.{{measure.name}}
+              </div>
+              <div class="col-md-1">
+                <span style="    background: #91D1FF;
+                width: 50px;
+                height: 50px;
+                display: block;
+                text-align: center;
+                padding-top: 22%;
+                border-radius: 30px;float:right;
+                font-size: 16px;">{{getLetter(measure.lead)}}</span>
+              </div>
+
+              <div class="col-md-2">
+                Project Lead
+                <br>
+                {{measure.lead}}
+              </div>
+
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

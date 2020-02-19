@@ -1,0 +1,203 @@
+<div style="background:#F7F7F7;height: 100vh;width:100vw;overflow-y: auto;
+overflow-x: hidden;">
+  <topmenu></topmenu>
+
+  <div class="submenu">
+    <div class="row">
+      <div class="col-md-4">
+        <button class="backBtn" (click)="back()" ><i class="icon-long-arrow-left"></i>&nbsp;Back</button>
+        <span style="font-size: 18px;color:#FFFFFF;">View Initiative</span>
+      </div>
+      <div class="col-md-6"></div>
+      <div class="col-md-2">
+        <!-- <button class="blueBtn" (click)="notifyTest()" style="background-color: transparent;border-color: transparent;">Notify</button> -->
+        <!-- <button class="blueBtn" (click)="cancelBtn()" style="background-color: transparent;border-color: transparent;">Cancel</button>
+        <button class="blueBtn" (click)="saveBtn()"><i class="icon-save"></i>&nbsp;Save</button> -->
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <form [formGroup]="initiativeForm" autocomplete="off">
+      <div class="col-md-6">
+        <div class="col-md-12 card">
+
+            <ng-container *ngFor="let formElement of elementsList ; let i =index ">
+              <cform title="{{formElement.title}}" formCName="{{formElement.cname}}" spread="{{formElement.spread}}"  [parentForm]="initiativeForm" type="{{formElement.type}}" isRequired="{{formElement.required}}" value="{{formElement.value}}" ></cform>
+
+            </ng-container>
+
+           
+            </div>
+
+
+
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-12  card">
+            
+            <ng-container *ngFor="let formElement of elementsList2 ; let i =index ">
+              <cform title="{{formElement.title}}" formCName="{{formElement.cname}}" spread="{{formElement.spread}}"  [parentForm]="initiativeForm" type="{{formElement.type}}" isRequired="{{formElement.required}}" value="{{formElement.value}}" ></cform>
+
+            </ng-container>
+          </div>
+
+          <div class="col-md-12  card">
+            Responsibilities:
+            <br />
+            <ng-container *ngFor="let formElement of elementsList3 ; let i =index">
+
+              <cform title="{{formElement.title}}" formCName="{{formElement.cname}}" spread="{{formElement.spread}}"  [parentForm]="initiativeForm" type="{{formElement.type}}" isRequired="{{formElement.required}}" value="{{formElement.value}}" ></cform>
+
+             
+            </ng-container>
+          </div>
+
+
+      </div>
+
+      <div class="col-md-12">
+        <div class="col-md-12  card" *ngIf="groupArr && groupArr.controls.length > 0">
+          <!-- <div class="card"> -->
+            <div formArrayName="groupvalues">
+
+              <div class="tablerow" *ngFor="let part of groupArr.controls;let i =index" [formGroupName]="i">
+
+                <ng-container *ngFor="let formElement of elementList6 ; let i2 =index ">
+
+
+                    <div class="col-md-{{formElement.spread}}">
+                      <span class="form-label">{{formElement.title}}</span>
+
+                       <br>
+
+                   
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+
+
+          </div>
+      </div>
+
+      <div class="col-md-12">
+        <tabs style="margin-left:-15px;margin-left:-15px;min-height: auto;">
+          <tab tabTitle="IL Planning">
+            <div class="col-md-12  card" *ngIf="statusArr">
+              <div formArrayName="ilstatus">
+
+                <div class="tablerow" *ngFor="let part of statusArr.controls;let i =index" [formGroupName]="i">
+                <ng-container *ngFor="let formElement of elementsList5 ; let i =index ">
+                  <cform title="{{formElement.title}}" formCName="{{formElement.cname}}" spread="{{formElement.spread}}" [parentForm]="part" type="{{formElement.type}}" ></cform>
+
+                </ng-container>
+                </div>
+                </div>
+
+              </div>
+          </tab>
+          <tab tabTitle="Potentials">
+            <div class="col-md-12  card" style="margin-top:0px;">
+
+              <table>
+                <tr class="potential-row">
+                  <th class="potential-column" style="text-align: center;"></th>
+                  <th *ngFor="let marker of markerList;let mi = index" class="potential-column" style="text-align: center;">
+                    <b><span *ngIf="mi == 0" >Baseline-</span>{{marker}}</b>
+
+                  </th>
+
+                </tr>
+                <tr *ngFor="let potential of potentialList;let pl = index" class="potential-row">
+                  <td class="data-td potential-column" style="text-align: right;">{{potential.title}}</td>
+                  <td *ngFor="let marker of markerList;let ml = index" class="data-td potential-column">
+
+                    <input class="calcinput {{'cipl'+pl+'ml'+ml}} form-control data-cell" formControlName="title" id="{{'pl'+potential.id+'ml'+ml}}"  *ngIf="potential.iscalculated !=1" type="number"
+                     (input)="onValueEnter($event,pl,ml,potential.id)">
+                    <input formControlName="title" id="{{'pl'+pl+'ml'+ml}}" *ngIf="potential.iscalculated ==1" type="number"
+                      class="form-control data-cell {{'cipl'+pl+'ml'+ml}}" disabled>
+                  </td>
+
+
+                </tr>
+
+              </table>
+
+
+
+            </div>
+          </tab>
+          <tab tabTitle="Comments">
+            <div class="col-md-12  card">
+
+              <div class="row">
+                <div class="col-md-4">
+                  <input id="commentText" type="text" class="form-control">
+                </div>
+                <div class="col-md-2">
+                  <button class="btn btn-default" (click)="addComment()">Comment</button>
+                </div>
+              </div>
+
+            </div>
+          </tab>
+          <tab tabTitle="Audit Trail">
+            <div class="col-md-12  card">
+              <div class="auditcard row" *ngFor="let audit of auditCards">
+                <div class="col-md-2">{{audit.date}}</div>
+                <div class="col-md-2">{{audit.time}}</div>
+                <div class="col-md-8">{{audit.msg}}</div>
+              </div>
+
+            </div>
+          </tab>
+          <tab tabTitle="Attachments">
+            <div class="col-md-12  card">
+              
+
+            </div>
+          </tab>
+        </tabs>
+
+      </div>
+
+
+    </form>
+  </div>
+  <div class="" style="padding: 30px;">
+    <div class="col-md-12 card">
+    <span>Measures</span>
+    <div class="measureContainer">
+      <div class="measureItem row" *ngFor="let measure of measureList;let j = index">
+              <div class="col-md-8">
+                {{j+1}}.{{measure.name}}
+              </div>
+              <div class="col-md-1">
+                <span  class="person-icon2" style="">{{getLetter(measure.lead)}}</span>
+              </div>
+
+              <div class="col-md-2">
+                Task Owner
+                <br>
+                {{measure.lead}}
+              </div>
+
+              <div class="col-md-1">
+                <button class="blueBtn" (click)="editBtn()"><i class="icon-save"></i>&nbsp;Edit</button>
+                </div>
+
+
+
+            </div>
+
+
+    </div>
+  </div>
+    </div>
+
+</div>
+
+<notify *ngIf="notify" [state]="notifyState" [message]="notifyMessage" [@inOutAnimation]></notify>
+

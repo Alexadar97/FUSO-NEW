@@ -1,0 +1,28 @@
+#notify {
+    position     : fixed;
+    top          : 4%;
+    right        : 2%;
+    background   : #F7F7F7;
+    padding      : 10px;
+    border-radius: 5px;
+    /* border       : 1px solid #b39090; */
+    width        : 240px;
+    text-align   : center;
+    /* background: transparent linear-gradient(180deg, #FFFFFF 0%, #F8F8F8 100%) 0% 0% no-repeat padding-box; */
+    background-image: linear-gradient(rgb(255, 255, 255) 0%, rgb(248, 248, 248) 100%);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: initial;
+    background-attachment: initial;
+    background-origin: padding-box;
+    background-clip: padding-box;
+}
+.success{
+    background-color: #2ecc71 !important;
+    color:#fff;
+}
+
+.error{
+    background-color: #e74c3c !important;
+    color:#fff
+}

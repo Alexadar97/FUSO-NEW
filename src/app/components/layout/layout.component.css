@@ -1,0 +1,21 @@
+.box {
+    border: 1px solid;
+    height: 77px;
+    cursor: pointer;
+}
+button.btn-next {
+    border: none;
+    padding: 2px 15px;
+    background: purple;
+    border-radius: 5px;
+    color: #fff;
+}
+.bg-color{
+    background: #48444447;
+}
+div#box0,div#box1,div#box2,div#box3 {
+    height: 153px;
+}
+div#box4,div#box5,div#box6,div#box7 {
+    height: 230px;
+}

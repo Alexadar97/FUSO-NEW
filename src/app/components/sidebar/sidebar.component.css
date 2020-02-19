@@ -1,0 +1,27 @@
+
+.menuitem{
+    width: 100%;
+    display: block;
+    /* border-bottom: 1px solid grey; */
+    font-size: 18px;
+    padding: 20px 10px;
+    cursor: pointer;
+}
+
+.selected{
+    /* background: #484B6B; */
+    background: #afafb387;
+    color: #fff;
+    background: #EFF0F1;
+    color: #000;
+    border-right: 4px solid #cacaca;
+}
+
+.menuitem:hover{
+    /* border-bottom: 2px solid grey; */
+    /* background: #484B6B; */
+    background: #afafb3;
+    /* color: #fff; */
+    background: #EFF0F1;
+    border-right: 4px solid #cacaca;
+}

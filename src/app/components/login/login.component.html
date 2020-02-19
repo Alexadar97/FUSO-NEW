@@ -1,0 +1,60 @@
+<div id="loginbg">
+  <div id="toppage">
+    <div id="companylogo">
+      
+    </div>
+  </div>
+
+  <div id="container">
+    <div id="section1" >
+      <div id="section1Inner">
+
+      </div>
+    </div>
+    <div id="section2">
+      <div id="brands"></div>
+    </div>
+    <hr style="margin-bottom: 12px;margin-top: 6px;">
+    <div id="section3" class="">
+      <span class="text_font" style="font-weight: bold;    font-size: 20px;
+      ">Login</span>
+      <br>
+     
+      <span class="text_font" style="font-size:12px;">Short ID</span>
+      <br>
+      <input id="shortID" type="text" class="form-control" >
+      <br>
+      <span class="text_font" style="font-size:12px;">Password</span>
+      <br>
+      <input id="password" type="password" class="form-control" >
+      
+      <span style="font-size: 12px;margin-top:4px;display: inline-block;
+      cursor: pointer;color:red;margin-top:10px;" (click)="reqAccess()">Request Access</span>
+      <br>
+      <div class="col-md-3 col-md-offset-9" style="margin-bottom: 30px;"> 
+        <button id="loginBtn" class="" (click)="login()">
+          Login <img style="display: inline-block;
+          float: right;
+          margin-top: 3px;" src="../../../assets/img/arrow.png" alt="">
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div id="modalView" *ngIf="showModal" [@inOutAnimation] >
+  <div id="reqAccess" >
+    <div class="title">Request Access</div>
+    <hr class="modalhr" >
+    <div class="modalbody">
+        <span class="text_font f12">Enter your Short id:</span>
+        <input type="text" class="form-control">
+        <button class="loginbtn" style="display: inline-block;
+        float: right;
+        margin-top: 10px;
+        border-radius: 3px;text-align: center;" (click)="submitRequest()">Submit</button>
+    </div>
+  </div>
+</div>

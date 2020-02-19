@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+      <ng-container *ngIf="type == 'bar'">
+          <div *ngFor="let data of BarChartList;let i=index" class="col-md-{{columncount[i]}}">
+              <app-dynamic-barchart title={{data.title}} [data]=data.value color={{data.color}}
+                  xaxisvalue={{data.xaxisvalue}} yaxisvalue={{data.yaxisvalue}} seriesname={{data.seriesname}}
+                  legend={{data.legend}} tickInterval={{data.tickInterval}}></app-dynamic-barchart>
+          </div>
+      </ng-container>
+      <ng-container *ngIf="type == 'line'">
+          <div class="col-md-{{columncount[i]}}" *ngFor="let data of LineChartList;let i=index">
+              <app-dynamic-linechart title={{data.title}} [data]=data.value subtitle={{data.subtitle}}
+                  yaxistext={{data.yaxistext}} legend={{data.legend}} tickInterval={{data.tickInterval}}>
+              </app-dynamic-linechart>
+          </div>
+      </ng-container>
+      <ng-container *ngIf="type == 'donut'">
+          <div class="col-md-{{columncount[i]}}" *ngFor="let data of DonutChartList;let i=index">
+              <app-dynamic-donutchart title={{data.title}} seriesname={{data.seriesname}} [data]=data.value
+                  color={{data.color}}>
+              </app-dynamic-donutchart>
+          </div>
+      </ng-container>
+      <ng-container *ngIf="type == 'stack'">
+          <div class="col-md-{{columncount[i]}}" *ngFor="let data of StackList;let i=index">
+              <app-dynamic-stackedbarchart title={{data.title}} seriesname={{data.seriesname}} [data]=data.value
+                  [catcolor]=data.catcolor yAxis={{data.yAxis}} tickInterval={{data.tickInterval}}
+                  enabled={{data.enabled}}>
+              </app-dynamic-stackedbarchart>
+          </div>
+      </ng-container>
+      <ng-container *ngIf="type == 'water'">
+          <div class="col-md-{{columncount[i]}}" *ngFor="let data of WaterFalList;let i=index">
+              <app-dynamic-waterfallchart title={{data.title}} [data]=data.value yAxis={{data.yAxis}}
+                  legend={{data.legend}} tickInterval={{data.tickInterval}} seriesname={{data.seriesname}}>
+              </app-dynamic-waterfallchart>
+          </div>
+      </ng-container>
+  </div>
+</div>

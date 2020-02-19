@@ -1,0 +1,78 @@
+.text_font{
+    color:#272B50;
+}
+
+.f12{
+    font-size: 12px;
+}
+.modalhr{
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top-color: #d6d6d6;
+}
+
+.tabs__tab.ng-star-inserted.active{
+    background: #fff !important;
+    color:#48536B  !important;
+}
+
+.tabs__panel{
+    background-color: #fff !important;
+    box-shadow: 0px 0px 0px 0px !important;
+}
+
+.tabs__tab-bar{
+    align-self: normal !important;
+    border: 0px solid #c9c9c9 !important;
+    margin-bottom: 0px !important;
+}
+
+.tabs__tab{
+    background: #E2E2E3 !important;
+    margin-right: 8px !important;
+}
+
+.tabs__tab.active{
+    background: #fff !important;
+    color:#000 !important;
+}
+
+.tabs__tab.ng-star-inserted.active{
+    background: #fff !important;
+    color:#000 !important;
+}
+
+body{
+    font-family: 'Lato', sans-serif !important;
+}
+
+.menu_title{
+    float: right;
+      cursor: pointer;
+      display: inline-block;
+      height: 50px;
+      padding-top: 20px;
+}
+
+rect{
+    stroke-width: 0;
+}
+
+.sidemenu{
+    display: inline-block;
+    float:left;
+    width:10%;
+
+}
+
+.mainsection{
+    display: inline-block;
+    float:left;
+    width:90%
+}
+
+.highcharts-container{
+    margin:auto;
+}

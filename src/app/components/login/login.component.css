@@ -1,0 +1,180 @@
+#loginbg {
+    position         : absolute;
+    top              : 0px;
+    bottom           : 0px;
+    left             : 0px;
+    right            : 0px;
+    background-image : url('../../../assets/img/login-bg.png');
+    background-size  : cover;
+    background-repeat: no-repeat;
+
+}
+
+#ghost {
+    position         : absolute;
+    top              : 0px;
+    bottom           : 0px;
+    left             : 0px;
+    right            : 0px;
+    background-image : url('../../../assets/img/bg.png');
+    background-size  : cover;
+    background-repeat: no-repeat;
+    z-index          : 1000;
+    opacity          : 0.1;
+}
+
+#toppage {
+    position         : absolute;
+    top              : 0px;
+    height           : 28%;
+    left             : 0px;
+    right            : 0px;
+    background-image : url('../../../assets/img/topbar.png');
+    background-size  : cover;
+    background-repeat: no-repeat;
+
+}
+
+#container {
+    position: absolute;
+    padding : 10px;
+    top     : 38%;
+    right   : 9%;
+    width   : 34%;
+
+    background   : #FFFFFF 0% 0% no-repeat padding-box;
+    border       : 1px solid #707070;
+    border-radius: 14px;
+    opacity      : 1;
+}
+
+#section1 {
+    background-image       : url('../../../assets/img/Image11.png');
+    height                 : 85px;
+    margin                 : -11px;
+    margin-bottom          : 0px;
+    display                : block;
+    border-top-left-radius : 14px;
+    border-top-right-radius: 14px;
+    padding-top            : 10px;
+}
+
+
+#section2 {}
+
+
+#section3 {
+    padding    : 18px;
+    padding-top: 4px;
+}
+
+.loginbtn {
+    background   : #3B94AC 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    color        : #fff;
+    font-size    : 11px;
+    width        : 76px;
+    height       : 24px;
+    text-align   : left;
+    padding-top  : 4px;
+}
+
+#loginBtn {
+    background   : #3B94AC 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    color        : #fff;
+    font-size    : 11px;
+    width        : 76px;
+    margin-left  : 10px;
+    height       : 30px;
+    margin-top   : 6px;
+    text-align   : left;
+    padding-top  : 4px;
+}
+
+#brands {
+    background-image   : url('../../../assets/img/brands.png');
+    display            : block;
+    height             : 50px;
+    margin             : auto;
+    background-repeat  : no-repeat;
+    width              : 60%;
+    background-size    : contain;
+    background-position: center center;
+}
+
+#section1Inner {
+    background-image   : url('../../../assets/img/Group142.png');
+    display            : block;
+    height             : 60px;
+    margin             : auto;
+    background-repeat  : no-repeat;
+    width              : 70%;
+    background-size    : contain;
+    background-position: center center;
+
+}
+
+#companylogo{
+    position: absolute;
+    width: 20%;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 10vw;
+    top: 10vh;
+}
+
+#modalView {
+    z-index   : 2000;
+    position  : absolute;
+    top       : 0px;
+    bottom    : 0px;
+    left      : 0px;
+    right     : 0px;
+    background: #0009;
+}
+
+#reqAccess {
+    position     : absolute;
+    top          : 35%;
+    left         : 36% !important;
+    right        : 36% !important;
+    background   : #fff;
+    padding      : 20px;
+    border-radius: 3px;
+}
+
+.title {
+    font-weight: bold;
+}
+
+#companylogo {
+    background-image: url('../../../assets/img/Daimler_Silver_logo.png');
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    /* For mobile phones: */
+    #loginbg {
+        background-position: center center;
+    }
+
+    #container {
+        top  : 10%;
+        left : 10%;
+        right: 10%;
+        width: auto;
+    }
+
+    #loginBtn {
+        position: absolute;
+        right   : 0px;
+    }
+
+    #regAccess {
+        left : 15%;
+        right: 15%;
+    }
+}

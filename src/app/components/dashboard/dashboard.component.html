@@ -1,0 +1,151 @@
+<div class="windowSection" style="">
+  <topmenu></topmenu>
+
+
+  <div class="submenu">
+    <div class="row">
+      <div class="col-md-4">
+        <!-- <button class="" (click)="back()" style="border: 0px;
+        margin-top: 6px;
+        margin-left: 10%;
+        border-radius: 2px;
+        background: transparent;
+        color: #C3C3C3;">Back</button> -->
+        <span class="submenu_title" style="font-size: 18px;color:#FFFFFF;margin-left: 12%;">
+          <!-- /&nbsp; -->
+          DTA One Matrix Status Overview</span>
+      </div>
+      <div class="col-md-6"></div>
+      <div class="col-md-2" style="position: relative;">
+
+      </div>
+    </div>
+  </div>
+
+  <app-sidebar class="sidemenu" style="height: 90vh;"></app-sidebar>
+  <div class="mainsection">
+    <div class="container" style="margin-right: 0px;
+    margin-left: 10px;">
+      <div class='column-container' style="width:78%;display:inline-block;">
+    <div class="column-r row headingrow"  >
+      <div class="column-c" style="width:20%">
+        &nbsp;
+      </div>
+      <div class="column-c" *ngFor="let v of verticalList;let vj = index" style="text-align: center;height:50px;" [style.width.%]="100/(verticalList.length+1)">
+        <b style="padding-top: 8%;position:relative;font-size: 14px;
+        display: block;text-transform: uppercase;">{{v.name}} <img class="flagicon" *ngIf="v.name == 'Japan'" src="../../../assets/img/japan.png" alt="">
+        <img class="flagicon"  *ngIf="v.name == 'India'" src="../../../assets/img/india.png" alt=""> </b>
+
+      </div>
+
+    </div>
+  <div class="chartHolder" style="">
+    <div class="column-r row" *ngFor="let h of horizontalList;let hj = index" style="height:140px;" >
+      <div class="column-c" style="height: 140px;width:20%;">
+        
+        <b class="hname" style="">{{h.name}}</b>
+        <b *ngIf="h.twoAreas" class="hname" style="margin-top: 0px;
+        padding: 0px;">
+          <div style="position: relative;top:0px;left:0px;right:0px;bottom:0px;height: 140px;
+          width: 100%;">
+            <div class="sub_title" style="">Non Product Pricing</div>
+            <div class="sub_title_2" style=""> Product Pricing</div>
+          </div>
+        </b>
+
+      </div>
+      <div class="column-c" *ngFor="let v of verticalList;let vj = index" style="height: 140px;border: 1px solid #efefef;" [style.width.%]="100/(verticalList.length+1)">
+       <ng-container *ngIf="dashboardMap['h'+h['id']+'v'+v['id']] && dashboardMap['h'+h['id']+'v'+v['id']]['size'] == 1">
+        <div  [chart]="barchartArr['h'+h['id']+'v'+v['id']+'a1']" id="barchart1-{{hj-vj}}" style="width: 80%;height:100px;margin: auto;
+        "></div>
+       </ng-container>
+
+       <ng-container *ngIf="dashboardMap['h'+h['id']+'v'+v['id']] && dashboardMap['h'+h['id']+'v'+v['id']]['size'] == 2">
+        <div  [chart]="barchartArr['h'+h['id']+'v'+v['id']+'a1']" id="barchart1-{{hj-vj}}" style="width: 80%;height:70px;margin: auto;
+        "></div>
+        <div  [chart]="barchartArr['h'+h['id']+'v'+v['id']+'a2']" id="barchart1-{{hj-vj}}" style="width: 80%;height:70px;margin: auto;
+        "></div>
+      </ng-container>
+
+        <!-- <div  [chart]="barchartArr['h'+h['id']+'v'+v['id']]" id="barchart1-{{hj-vj}}" style="width: 100%;height:140px;
+        "></div> -->
+         <!-- <div  [chart]="barchart1" id="barchart1-{{hj-vj}}" style="width: 100%;height:70px;
+         "></div> -->
+      </div>
+    </div>
+  </div>
+
+      </div>
+      <div style="width: 4%;
+      display: inline-block;
+      position: relative;
+
+      height: 501px;
+
+      top: 10px;
+      text-align: center;">
+        <div style="position: absolute;
+
+        width: 100%;">
+          VS
+        </div>
+      </div>
+
+      <div class='column-container' style="width:16%;display:inline-block;">
+        <div class="column-r row headingrow">
+
+          <ng-container *ngFor="let v of verticalList;let vj = index" >
+            <div class="column-c" *ngIf="vj==0"  style="width:160px;text-align: center;height:50px;">
+
+              <b style="padding-top: 8%;position:relative;
+                    display: block;text-transform: uppercase;">
+                    OKU JPY
+                    <br>
+                    Normalised 18
+                    </b>
+
+
+
+            </div>
+          </ng-container>
+        </div>
+        <div class="chartHolder" style="">
+         
+          <div class="column-r row" *ngFor="let h of horizontalList;let hj = index" style="height:140px;">
+
+            <!-- <ng-container *ngFor="let v of verticalList;let vj = index" > -->
+              <!-- {{normalVerticalPillar}} -->
+            <div  class="column-c"   style="height: 140px;width:160px;border: 1px solid #efefef80;">
+                <!-- {{'h'+h['id']+'v'+normalVerticalPillar}} -->
+
+                <ng-container *ngIf="normalizedDashboardMap['h'+h['id']+'v'+normalVerticalPillar] && normalizedDashboardMap['h'+h['id']+'v'+normalVerticalPillar]['size'] == 1">
+                  
+                  <div  [chart]="normalBarchartArr['h'+h['id']+'v'+normalVerticalPillar+'a1']" id="barchart1-{{hj-vj}}" style="width: 100%;height:140px;
+                  "></div>
+                 
+                </ng-container>
+
+                <ng-container *ngIf="normalizedDashboardMap['h'+h['id']+'v'+normalVerticalPillar] && normalizedDashboardMap['h'+h['id']+'v'+normalVerticalPillar]['size'] == 2">
+                  <div  [chart]="normalBarchartArr['h'+h['id']+'v'+normalVerticalPillar+'a1']" id="barchart1-{{hj-vj}}" style="width: 100%;height:70px;
+                  "></div>
+                  <div  [chart]="normalBarchartArr['h'+h['id']+'v'+normalVerticalPillar+'a2']" id="barchart1-{{hj-vj}}" style="width: 100%;height:70px;
+                  "></div>
+                 
+                </ng-container>
+
+            </div>
+          <!-- </ng-container> -->
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+
+  </div>

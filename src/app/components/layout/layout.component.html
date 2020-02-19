@@ -1,0 +1,30 @@
+<div class="container">
+<div class="row" style="margin-top: 32px;">
+  <div class="col-md-3">
+    <!-- <select (change)="ChartType($event.target.value)">
+      <option value="null" disabled>Select Chart Type</option>
+      <option value="bar">Bar Chart</option>
+      <option value="line">Line Chart</option>
+      <option value="donut">Donut Chart</option>
+      <option value="stack">Stacked Bar Chart</option>
+      <option value="water">Water Fall Chart</option>
+    </select> -->
+   </div>
+   <div class="col-md-9 text-right">
+     <button class="btn-next" (click)="next()">Next</button>
+   </div>
+</div>
+<div class="row" style="margin-top: 17px;">
+  <ng-container *ngFor="let data of ovarallList; let i=index">
+      <div class="col-md-3 text-center" (click)="dynamicvlaue(i)">
+        <h2>{{i+1}}</h2>
+        <div class="highlight-color" id="box{{i}}" (click)="clickbox(i)">
+            <ng-container *ngFor="let data2 of data;let j=index">
+              <div class="col-md-{{data2}} box">
+              </div>
+            </ng-container>
+      </div>
+      </div>
+  </ng-container>
+</div>
+</div>
